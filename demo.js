@@ -1,8 +1,8 @@
 "use strict";
 
-var prop = "top";
+var prop = "transform";
 function augString(x){
-    return x + "px";
+    return "translateY(" + x + "px)";
 }
 
 function generateAnimation(callback) {
@@ -48,7 +48,7 @@ var obj = {
 };
 
 obj.start = generateAnimation.call(obj, function (percent) {
-    var path = 400 / 100 * percent;
+    var path = 400 / 100 * ease(percent / 100, 0, -500, 500) / 5;
     document.all.a.style[prop] = augString(path);
     document.all.b.style[prop] = augString(path * 1.2);
     document.all.c.style[prop] = augString(path * 1.4);
@@ -56,6 +56,30 @@ obj.start = generateAnimation.call(obj, function (percent) {
     document.all.e.style[prop] = augString(path * 1.8);
 });
 
-setInterval(() => {
+setTimeout(() => {
     obj.reset().start();
 }, 1950);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function ease(t, p0, p1, p2) {
+    return (Math.pow(1 - t, 2) * p0 + 2 * (1 - t) * t * p1 + Math.pow(t, 2) * p2)
+}
