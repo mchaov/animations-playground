@@ -48,7 +48,7 @@ var obj = {
 };
 
 obj.start = generateAnimation.call(obj, function (percent) {
-    var path = 400 / 100 * ease(percent / 100, 0, -500, 500) / 5;
+    var path = 400 / 100 * ease(percent / 100, 0, -500, 500) / 5; //percent; //
     document.all.a.style[prop] = augString(path);
     document.all.b.style[prop] = augString(path * 1.2);
     document.all.c.style[prop] = augString(path * 1.4);

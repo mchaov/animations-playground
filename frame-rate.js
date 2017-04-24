@@ -18,15 +18,29 @@ function frameRate(time) {
     var deltaTime = time - startTime;
 
 
-/*
     var t = deltaTime / 2000;
-    ctx.clear();
+    
     gridMe();
     ctx.lineTo(
-        curvePoint(t, 0, 250, 500),
-        curvePoint(t, 0, 450, 500)
+        curvePoint(t, 0, 150, 500),
+        curvePoint(t, 0, -50, 500)
     );
     ctx.stroke();
+/*
+	ctx.beginPath();
+	ctx.clear();
+	ctx.rect(0, 0, 500, 500);
+	ctx.fillStyle = "#ffffff";
+	ctx.fill();
+	ctx.closePath();
+	
+	ctx.beginPath();
+	ctx.arc(
+		curvePoint(t, 0, 250, 500),
+        curvePoint(t, 0, 450, 500),
+		50, 0 , 2 * Math.PI);
+		
+	ctx.closePath();
 */
 
 
